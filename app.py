@@ -35,9 +35,7 @@ if st.button(' Predict '):
     inp_data.extend([1 if x in cuisines else 0 for x in list(df.columns)[33:]])
     result = np.array(inp_data).reshape(1, df.columns.shape[0])
     result = scaler.transform([inp_data])
-    print(result)
     result = model.predict(result)[0]
-    print(result)
 if result == 1:
     st.success('   The resturant will succeed', icon="✅")
 elif result == 0:
